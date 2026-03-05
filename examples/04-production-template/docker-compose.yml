@@ -1,0 +1,98 @@
+# Docker Compose for Agentic AI API
+# ==================================
+# Usage: docker-compose up -d
+
+version: '3.8'
+
+services:
+  # Main API Service
+  agent-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: agentic-ai-api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - LANGSMITH_API_KEY=${LANGSMITH_API_KEY:-}
+      - LANGSMITH_PROJECT=${LANGSMITH_PROJECT:-production-agents}
+      - MODEL_NAME=${MODEL_NAME:-gpt-4o-mini}
+      - DEBUG=${DEBUG:-false}
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Redis for caching and session storage
+  redis:
+    image: redis:7-alpine
+    container_name: agentic-ai-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    command: redis-server --appendonly yes
+
+  # Optional: PostgreSQL for persistent storage
+  postgres:
+    image: postgres:15-alpine
+    container_name: agentic-ai-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${DB_USER:-agent}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-agentpass}
+      - POSTGRES_DB=${DB_NAME:-agent_memory}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-agent} -d ${DB_NAME:-agent_memory}"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Optional: Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: agentic-ai-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - agent-api
+    networks:
+      - agent-network
+    restart: unless-stopped
+    profiles:
+      - production
+
+networks:
+  agent-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+  postgres-data:

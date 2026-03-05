@@ -1,54 +1,53 @@
-# 🤖 Agentic AI: From Theory to Production
+# Agentic AI: From Theory to Production
 
-> **Complete Agentic AI Mastery Guide** – From Andrew Ng's course patterns to production-grade systems.  
+> **Complete Agentic AI Mastery Guide** - From design patterns to production-grade systems.  
 > Learn reflection, planning, multi-agent orchestration, evals, and deploy reliable agents that actually work in industry.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Last Updated](https://img.shields.io/badge/Updated-March%202026-blue.svg)]()
 [![Stars](https://img.shields.io/github/stars/B-Bharath-Reddy/Agentic-AI?style=social)](https://github.com/B-Bharath-Reddy/Agentic-AI)
 
 ---
 
-## 🎯 Who This Is For
+## Who This Is For
 
 | Level | Description |
 |-------|-------------|
-| **Beginner** | Just heard about Agentic AI? Start with the [Quick Start](#-quick-start) |
-| **Developer** | Building your first agent? Follow the [30-min path](#-how-to-use-this-guide) |
-| **Production Engineer** | Deploying at scale? Jump to [Production Guide](#-production-deployment--scaling) |
+| **Beginner** | Just heard about Agentic AI? Start with the [Quick Start](#quick-start-code) |
+| **Developer** | Building your first agent? Follow the [30-min path](#how-to-use-this-guide) |
+| **Production Engineer** | Deploying at scale? Jump to [Production Guide](#production-deployment--scaling) |
 
 **Prerequisites:** Python basics + LLM API knowledge (OpenAI, Anthropic, etc.)
 
 ---
 
-## 📖 How to Use This Guide
+## How to Use This Guide
 
-### 🚀 30-Minute Quick Start Path
-1. Read [Core Design Patterns](#-core-design-patterns-overview) (10 min)
+### 30-Minute Quick Start Path
+1. Read [Core Design Patterns](#core-design-patterns-overview) (10 min)
 2. Run [01-reflection-agent.py](examples/01-reflection-agent.py) (5 min)
 3. Skim [Best Practices](agentic_ai_techniques_guide.md#11-best-practices-summary) (5 min)
 4. Check [Production Checklist](production-checklist.md) (10 min)
 
-### 📚 Full Deep-Dive Path
+### Full Deep-Dive Path
 1. Read the complete [Agentic AI Techniques Guide](agentic_ai_techniques_guide.md) (2-3 hours)
 2. Work through all [examples](examples/) (4-6 hours)
 3. Build your own agent using [production template](examples/04-production-template/) (2-4 hours)
 
 ---
 
-## 🏗️ What You Will Be Able to Build
+## What You Will Be Able to Build
 
 After completing this guide, you'll have the skills to build:
 
 | Project | Description | Complexity |
 |---------|-------------|------------|
 | **Customer Support Agent** | Multi-turn conversations with tool use, 87% resolution rate | Intermediate |
-| **Research Analyst Agent** | Web search → synthesis → report generation | Intermediate |
+| **Research Analyst Agent** | Web search, synthesis, report generation | Intermediate |
 | **Internal IT Ticket Agent** | Auto-triage, resolve, escalate with human-in-the-loop | Advanced |
 
 ---
 
-## ⚡ Quick Start Code
+## Quick Start Code
 
 ```python
 # Install: pip install aisuite langgraph
@@ -74,43 +73,45 @@ print(response.choices[0].message.content)
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 ### Core Guide
-- [Full 11-Section Reference Guide →](agentic_ai_techniques_guide.md)
-- [Production Checklist →](production-checklist.md)
+- [Full 11-Section Reference Guide](agentic_ai_techniques_guide.md)
+- [Production Checklist](production-checklist.md)
 
 ### Topics Covered
 | Topic | Section | Status |
 |-------|---------|--------|
-| 🔄 Reflection Pattern | [Guide §3](agentic_ai_techniques_guide.md#3-reflection-design-pattern-deep-dive) | ✅ Complete |
-| 🔧 Tool Use | [Guide §4](agentic_ai_techniques_guide.md#4-tool-use--function-calling) | ✅ Complete |
-| 📋 Planning Workflows | [Guide §5](agentic_ai_techniques_guide.md#5-planning-workflows) | ✅ Complete |
-| 👥 Multi-Agent Systems | [Guide §6](agentic_ai_techniques_guide.md#6-multi-agent-systems) | ✅ Complete |
-| 📊 Evaluations | [Guide §7](agentic_ai_techniques_guide.md#7-evaluations-evals) | ✅ Complete |
-| 🔍 Error Analysis | [Guide §8](agentic_ai_techniques_guide.md#8-error-analysis-framework) | ✅ Complete |
-| 🚀 Production Deployment | [Below](#-production-deployment--scaling) | ✅ Complete |
-| 📈 Observability | [Below](#-observability--monitoring) | ✅ Complete |
-| 🔒 Security & Guardrails | [Below](#-security-guardrails--reliability) | ✅ Complete |
-| 💰 Cost Optimization | [Below](#-cost-optimization--performance) | ✅ Complete |
+| Reflection Pattern | [Guide Section 3](agentic_ai_techniques_guide.md#3-reflection-design-pattern-deep-dive) | Complete |
+| Tool Use | [Guide Section 4](agentic_ai_techniques_guide.md#4-tool-use--function-calling) | Complete |
+| Planning Workflows | [Guide Section 5](agentic_ai_techniques_guide.md#5-planning-workflows) | Complete |
+| Multi-Agent Systems | [Guide Section 6](agentic_ai_techniques_guide.md#6-multi-agent-systems) | Complete |
+| Evaluations | [Guide Section 7](agentic_ai_techniques_guide.md#7-evaluations-evals) | Complete |
+| Error Analysis | [Guide Section 8](agentic_ai_techniques_guide.md#8-error-analysis-framework) | Complete |
+| Production Deployment | [Below](#production-deployment--scaling) | Complete |
+| Observability | [Below](#observability--monitoring) | Complete |
+| Security & Guardrails | [Below](#security-guardrails--reliability) | Complete |
+| Cost Optimization | [Below](#cost-optimization--performance) | Complete |
 
 ---
 
-## 🔄 Core Design Patterns Overview
+## Core Design Patterns Overview
 
-```mermaid
-graph TB
-    subgraph "The 4 Pillars of Agentic AI"
-        R[Reflection<br/>Self-critique & improvement]
-        T[Tool Use<br/>External capabilities]
-        P[Planning<br/>Step-by-step execution]
-        M[Multi-Agent<br/>Specialized collaboration]
-    end
-    
-    R --> |Improves| T
-    T --> |Enables| P
-    P --> |Orchestrates| M
-    M --> |Feedback| R
+```
+The 4 Pillars of Agentic AI:
+
++-------------------+     +-------------------+
+|   REFLECTION      |     |    TOOL USE       |
+| Self-critique &   | --> | External          |
+| improvement       |     | capabilities      |
++-------------------+     +-------------------+
+         |                        |
+         v                        v
++-------------------+     +-------------------+
+|   PLANNING        |     |   MULTI-AGENT     |
+| Step-by-step      | <-- | Specialized       |
+| execution         |     | collaboration     |
++-------------------+     +-------------------+
 ```
 
 ### Quick Decision Matrix
@@ -126,7 +127,7 @@ graph TB
 
 ---
 
-## 🚀 Production Deployment & Scaling
+## Production Deployment & Scaling
 
 ### FastAPI + LangGraph Server
 
@@ -234,7 +235,7 @@ def process_agent_request(self, message: str, session_id: str):
 
 ---
 
-## 📈 Observability & Monitoring
+## Observability & Monitoring
 
 ### LangSmith Integration
 
@@ -287,7 +288,7 @@ def multi_agent_pipeline(query: str):
 
 ---
 
-## 🔒 Security, Guardrails & Reliability
+## Security, Guardrails & Reliability
 
 ### Prompt Injection Defense
 
@@ -384,7 +385,7 @@ def cost_guardrail(func):
 
 ---
 
-## 💰 Cost Optimization & Performance
+## Cost Optimization & Performance
 
 ### Model Routing (Cheap vs Expensive)
 
@@ -465,7 +466,7 @@ results = await parallel_tool_calls([
 
 ---
 
-## 🏢 Enterprise Integration
+## Enterprise Integration
 
 ### Connecting to Internal APIs, Databases, Auth
 
@@ -502,33 +503,32 @@ async def enterprise_agent(
 
 | Requirement | Implementation | Status |
 |-------------|---------------|--------|
-| **GDPR** | PII detection, right to deletion, consent management | ☐ |
-| **SOC2** | Audit logging, access controls, encryption at rest | ☐ |
-| **HIPAA** | PHI handling, BAA with providers, access logging | ☐ |
-| **Data Retention** | Auto-delete after 90 days, configurable | ☐ |
-| **Access Control** | RBAC, API key rotation, MFA | ☐ |
+| **GDPR** | PII detection, right to deletion, consent management | Pending |
+| **SOC2** | Audit logging, access controls, encryption at rest | Pending |
+| **HIPAA** | PHI handling, BAA with providers, access logging | Pending |
+| **Data Retention** | Auto-delete after 90 days, configurable | Pending |
+| **Access Control** | RBAC, API key rotation, MFA | Pending |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Agentic-AI/
-├── README.md                          ← You are here
-├── agentic_ai_techniques_guide.md     ← Full 11+ section reference
-├── production-checklist.md            ← Pre-launch checklist
-├── examples/
-│   ├── 01-reflection-agent.py         ← Reflection pattern code
-│   ├── 02-planning-agent.ipynb        ← LangGraph + ReAct + planning
-│   ├── 03-multi-agent-crew/           ← CrewAI + AutoGen examples
-│   └── 04-production-template/        ← FastAPI + Docker + tracing
-├── diagrams/                          ← Architecture diagrams (optional)
-└── LICENSE                            ← MIT License
+|-- README.md                          <- You are here
+|-- agentic_ai_techniques_guide.md     <- Full 11+ section reference
+|-- production-checklist.md            <- Pre-launch checklist
+|-- examples/
+|   |-- 01-reflection-agent.py         <- Reflection pattern code
+|   |-- 02-planning-agent.ipynb        <- LangGraph + ReAct + planning
+|   |-- 03-multi-agent-crew/           <- CrewAI + AutoGen examples
+|   |-- 04-production-template/        <- FastAPI + Docker + tracing
+|-- diagrams/                          <- Architecture diagrams (optional)
 ```
 
 ---
 
-## 📊 Case Studies
+## Case Studies
 
 ### Case Study 1: Customer Support Agent at Scale
 
@@ -550,7 +550,7 @@ Agentic-AI/
 | Accuracy | 94% fact-checked |
 | Cost per Report | $0.03 |
 
-**Implementation:** Multi-agent (Researcher → Writer → Reviewer) with web search and reflection
+**Implementation:** Multi-agent (Researcher -> Writer -> Reviewer) with web search and reflection
 
 ### Case Study 3: Internal IT Ticket Agent
 
@@ -565,19 +565,19 @@ Agentic-AI/
 
 ---
 
-## 🔧 Tool Comparison
+## Tool Comparison
 
 | Framework | Best For | Learning Curve | Production Ready |
 |-----------|----------|----------------|------------------|
-| **LangGraph** | Complex workflows, state management | Medium | ✅ Yes |
-| **CrewAI** | Multi-agent teams | Low | ✅ Yes |
-| **AutoGen** | Research, experimentation | Medium | ⚠️ Beta |
-| **Semantic Kernel** | Enterprise .NET integration | Medium | ✅ Yes |
-| **Custom** | Full control, specific needs | High | ✅ Yes |
+| **LangGraph** | Complex workflows, state management | Medium | Yes |
+| **CrewAI** | Multi-agent teams | Low | Yes |
+| **AutoGen** | Research, experimentation | Medium | Beta |
+| **Semantic Kernel** | Enterprise .NET integration | Medium | Yes |
+| **Custom** | Full control, specific needs | High | Yes |
 
 ---
 
-## 📚 Further Reading & Resources
+## Further Reading & Resources
 
 ### Papers
 - [Self-Refine: Iterative Refinement with Self-Feedback](https://arxiv.org/abs/2303.17651)
@@ -585,7 +585,6 @@ Agentic-AI/
 - [Executable Code Actions Elicit Better LLM Agents](https://arxiv.org/abs/2402.01030)
 
 ### Courses
-- [Andrew Ng's Agentic AI Course](https://www.deeplearning.ai/) (Source of this guide)
 - [LangChain Academy](https://academy.langchain.com/)
 
 ### Communities
@@ -595,7 +594,7 @@ Agentic-AI/
 
 ---
 
-## ❓ FAQ
+## FAQ
 
 ### 1. What's the difference between an LLM and an Agent?
 An LLM generates text. An Agent uses tools, maintains state, and executes multi-step workflows.
@@ -629,26 +628,19 @@ Yes, with local models (Ollama, LM Studio) and local tools.
 
 ---
 
-## 📄 License
+## Acknowledgments
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🙏 Acknowledgments
-
-- **Andrew Ng** for the excellent Agentic AI course (M1-M5)
 - **LangChain Team** for LangGraph and documentation
 - **Open Source Community** for the tools and frameworks
 
 ---
 
 <p align="center">
-  <strong>From "I've heard of Agentic AI" → "I just deployed a reliable multi-agent system in production"</strong>
+  <strong>From "I've heard of Agentic AI" to "I just deployed a reliable multi-agent system in production"</strong>
   <br/>
   <em>in a weekend.</em>
 </p>
 
 <p align="center">
-  ⭐ Star this repo if it helped you! ⭐
+  Star this repo if it helped you!
 </p>

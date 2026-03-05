@@ -1,10 +1,10 @@
-# 🚀 Production Checklist for Agentic AI Systems
+# Production Checklist for Agentic AI Systems
 
 > Copy-paste this checklist before deploying your agent to production.
 
 ---
 
-## ✅ Pre-Launch Checklist
+## Pre-Launch Checklist
 
 ### 1. Core Agent Design
 
@@ -171,24 +171,24 @@
 
 ---
 
-## 📊 Production Metrics Template
+## Production Metrics Template
 
 Copy this template to track your production metrics:
 
 | Metric | Target | Current | Status |
 |--------|--------|---------|--------|
-| **Success Rate** | > 95% | ___% | ⬜ |
-| **Latency P50** | < 2s | ___s | ⬜ |
-| **Latency P99** | < 10s | ___s | ⬜ |
-| **Cost per Task** | < $0.05 | $___ | ⬜ |
-| **Tool Error Rate** | < 5% | ___% | ⬜ |
-| **User Satisfaction** | > 4.0/5 | ___/5 | ⬜ |
-| **Daily Active Users** | ___ | ___ | ⬜ |
-| **Tasks per Day** | ___ | ___ | ⬜ |
+| **Success Rate** | > 95% | ___% | [ ] |
+| **Latency P50** | < 2s | ___s | [ ] |
+| **Latency P99** | < 10s | ___s | [ ] |
+| **Cost per Task** | < $0.05 | $___ | [ ] |
+| **Tool Error Rate** | < 5% | ___% | [ ] |
+| **User Satisfaction** | > 4.0/5 | ___/5 | [ ] |
+| **Daily Active Users** | ___ | ___ | [ ] |
+| **Tasks per Day** | ___ | ___ | [ ] |
 
 ---
 
-## 🔧 Pre-Launch Testing Script
+## Pre-Launch Testing Script
 
 ```bash
 # 1. Run evals
@@ -215,7 +215,7 @@ python tests/smoke_test.py
 
 ---
 
-## 🚨 Common Failure Modes to Watch For
+## Common Failure Modes to Watch For
 
 | Failure Mode | Symptoms | Fix |
 |--------------|----------|-----|
@@ -229,7 +229,7 @@ python tests/smoke_test.py
 
 ---
 
-## 📝 Launch Day Checklist
+## Launch Day Checklist
 
 - [ ] All pre-launch checks passed
 - [ ] Monitoring dashboard ready
@@ -238,11 +238,11 @@ python tests/smoke_test.py
 - [ ] Team on-call schedule set
 - [ ] User documentation updated
 - [ ] Support team briefed
-- [ ] Staged rollout plan (10% → 50% → 100%)
+- [ ] Staged rollout plan (10% -> 50% -> 100%)
 
 ---
 
-## 🔄 Post-Launch Monitoring (First 48 Hours)
+## Post-Launch Monitoring (First 48 Hours)
 
 - [ ] Check metrics every 2 hours
 - [ ] Review error logs
@@ -253,7 +253,7 @@ python tests/smoke_test.py
 
 ---
 
-## 📋 Quick Reference Commands
+## Quick Reference Commands
 
 ```bash
 # Check agent health

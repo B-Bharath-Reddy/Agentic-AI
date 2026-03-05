@@ -7,8 +7,6 @@ This agent:
 1. Generates an initial output (code, text, etc.)
 2. Reviews its own output for errors/improvements
 3. Iteratively refines until satisfied or max iterations reached
-
-Based on Andrew Ng's Agentic AI course (M2: Reflection Design Pattern)
 """
 
 import os
@@ -200,7 +198,7 @@ class ReflectionAgent:
         # Step 1: Generate initial draft
         if self.verbose:
             print("=" * 60)
-            print("📝 Generating initial draft...")
+            print("[INFO] Generating initial draft...")
             print("=" * 60)
         
         current_draft = self.generate_initial(task, task_type)
@@ -212,7 +210,7 @@ class ReflectionAgent:
         for i in range(self.max_iterations):
             if self.verbose:
                 print("=" * 60)
-                print(f"🔄 Reflection iteration {i + 1}/{self.max_iterations}")
+                print(f"[REFLECTION] Iteration {i + 1}/{self.max_iterations}")
                 print("=" * 60)
             
             critique, improved = self.reflect(current_draft, task_type)
@@ -230,7 +228,7 @@ class ReflectionAgent:
             self.history.append(result)
             
             if self.verbose:
-                print(f"\n📋 Critique:\n{critique[:500]}...\n")
+                print(f"\n[CRITIQUE]:\n{critique[:500]}...\n")
             
             # Check for satisfaction markers
             if stop_when_satisfied:
@@ -243,7 +241,7 @@ class ReflectionAgent:
                 ]
                 if any(marker in critique.lower() for marker in satisfaction_markers):
                     if self.verbose:
-                        print("✅ Agent is satisfied with the output!")
+                        print("[SUCCESS] Agent is satisfied with the output!")
                     break
             
             current_draft = improved
@@ -259,7 +257,7 @@ class ReflectionAgent:
         
         if self.verbose:
             print("=" * 60)
-            print("✨ FINAL OUTPUT")
+            print("[FINAL OUTPUT]")
             print("=" * 60)
             print(current_draft)
         
@@ -338,8 +336,8 @@ def example_with_external_feedback():
     success, output = execute_code(draft)
     
     if not success:
-        print(f"❌ Execution failed: {output}")
-        print("\n🔄 Reflecting on error...")
+        print(f"[ERROR] Execution failed: {output}")
+        print("\n[INFO] Reflecting on error...")
         
         # Feed error back for reflection
         error_feedback = f"""
@@ -359,14 +357,14 @@ Please fix the code and provide a working version.
             {"role": "user", "content": error_feedback}
         ]
         fixed = agent._call_llm(messages)
-        print(f"\n✅ Fixed code:\n{fixed}")
+        print(f"\n[FIXED]:\n{fixed}")
         
         # Verify fix
         success, output = execute_code(fixed)
         if success:
-            print(f"\n✅ {output}")
+            print(f"\n[SUCCESS] {output}")
         else:
-            print(f"\n❌ Still has issues: {output}")
+            print(f"\n[ERROR] Still has issues: {output}")
     
     return draft
 
@@ -376,13 +374,13 @@ Please fix the code and provide a working version.
 # ============================================================================
 
 if __name__ == "__main__":
-    print("╔════════════════════════════════════════════════════════════╗")
-    print("║         REFLECTION AGENT - Example Implementation          ║")
-    print("╚════════════════════════════════════════════════════════════╝")
+    print("=" * 60)
+    print("    REFLECTION AGENT - Example Implementation")
+    print("=" * 60)
     
     # Check for API key
     if not os.getenv("OPENAI_API_KEY"):
-        print("\n⚠️  Warning: OPENAI_API_KEY not set.")
+        print("\n[WARNING] OPENAI_API_KEY not set.")
         print("   Set it with: export OPENAI_API_KEY='your-key-here'")
         print("\n   Running in demo mode (showing structure only)...\n")
     else:
@@ -394,22 +392,22 @@ if __name__ == "__main__":
         pass
     
     # Show the structure
-    print("\n📚 REFLECTION AGENT STRUCTURE:")
+    print("\n[REFLECTION AGENT STRUCTURE]:")
     print("""
-    ┌─────────────────────────────────────────────────────────────┐
-    │                    REFLECTION WORKFLOW                       │
-    │                                                              │
-    │   ┌──────────┐    ┌──────────┐    ┌──────────┐             │
-    │   │  Write   │───►│ Review/  │───►│ Reflect  │             │
-    │   │  Draft   │    │ Critique │    │ & Revise │             │
-    │   └──────────┘    └──────────┘    └──────────┘             │
-    │                         │              │                    │
-    │                         └──────────────┘                    │
-    │                        (Iterate if needed)                  │
-    └─────────────────────────────────────────────────────────────┘
+    +-------------------------------------------------------------+
+    |                    REFLECTION WORKFLOW                       |
+    |                                                              |
+    |   +----------+    +----------+    +----------+              |
+    |   |  Write   |--->| Review/  |--->| Reflect  |              |
+    |   |  Draft   |    | Critique |    | & Revise |              |
+    |   +----------+    +----------+    +----------+              |
+    |                         |              |                    |
+    |                         +--------------+                    |
+    |                        (Iterate if needed)                  |
+    +-------------------------------------------------------------+
     """)
     
-    print("\n🔧 USAGE:")
+    print("\n[USAGE]:")
     print("""
     from reflection_agent import ReflectionAgent, TaskType
     
@@ -421,9 +419,9 @@ if __name__ == "__main__":
     print(result.final_output)
     """)
     
-    print("\n✅ Key Features:")
-    print("   • Self-critique and improvement")
-    print("   • Multiple task types supported")
-    print("   • Configurable iteration limit")
-    print("   • External feedback integration")
-    print("   • Full history tracking")
+    print("\n[KEY FEATURES]:")
+    print("   - Self-critique and improvement")
+    print("   - Multiple task types supported")
+    print("   - Configurable iteration limit")
+    print("   - External feedback integration")
+    print("   - Full history tracking")
